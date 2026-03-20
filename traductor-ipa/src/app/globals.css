@@ -1,3 +1,148 @@
-:root{
-  /* Colores, tipografias, estilos globales */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  
+  .logo-icon {
+    font-size: 1.8rem;
+  }
+  
+  .logo-text {
+    color: #0f172a;
+    
+    span {
+      color: #2563eb;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.main-nav {
+  display: flex;
+  gap: 0.5rem;
+  
+  a {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    transition: all 0.2s;
+    
+    &:hover {
+      background: #f1f5f9;
+      color: #2563eb;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  
+  .a-github {
+    background: transparent;
+    border: 2px solid #7fa5d7;
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    
+    &:hover {
+      background: #f1f5f9;
+      border-color: #124dca;
+    }
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #475569;
+    }
+  }
+}
+
+/* Main content */
+.site-main {
+  flex: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Footer Styles */
+.site-footer {
+  background: white;
+  border-top: 1px solid #a2a4a7;
+  margin-top: 4rem;
+  padding: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
 }
