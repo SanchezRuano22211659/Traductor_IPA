@@ -10,6 +10,7 @@ RUN npm ci
 # Copy project files
 COPY . .
 
+ENV NEXT_TELEMETRY_DISABLED=1
 # Build Next.js application (standalone mode required in next.config.ts)
 RUN npm run build
 
