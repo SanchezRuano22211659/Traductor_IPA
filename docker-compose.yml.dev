@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./g2p
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./g2p:/app
+    environment:
+      - PORT=8000
+      - MODEL_PATH=/app/g2p_model.pt
+      - VOCAB_PATH=/app/g2p_vocab.json
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./traductor-ipa
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./traductor-ipa:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    command: sh -c "npm install && npm run dev"
+    restart: unless-stopped

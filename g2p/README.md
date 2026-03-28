@@ -37,7 +37,7 @@ python entrenar.py
 **Opciones disponibles:**
 
 ```bash
-python entrenar.py --epochs 800 --lr 0.0005 --batch 16
+python entrenar.py --epochs 1000 --lr 0.0005 --batch 16
 python entrenar.py --dataset dataset.csv --model g2p_model.pt
 ```
 
